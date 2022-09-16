@@ -1,29 +1,694 @@
-<html>
-    <head>
-        <title>Elation Hacks</title>
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="icon" type="image/x-icon" href="logo.png">
-        <link href='https://fonts.googleapis.com/css?family=Permanent Marker' rel='stylesheet'>
-        <style>
-        body {
-            font-family: 'Permanent Marker';font-size: 50px;
-        }
-        </style>
-    </head>
-    <body>
-        <div id="welcome" class="logo-wrapper">
-            <img id="logo" src="logo.png" />
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <title>Elation Health Hackathon '22 - September 19th - 23rd, 2022</title>
+    <meta name="description" content="TBD Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap">
+    </noscript>
+
+    <!-- social media -->
+    <meta property="og:title" content="Elation Health">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="TBD Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- initialize theme -->
+    <script>
+      const themeSaved = localStorage.getItem("theme");
+
+      if (themeSaved) {
+        document.documentElement.dataset.theme = themeSaved;
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+      }
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.dataset.theme = event.matches
+              ? "dark"
+              : "light";
+          }
+        });
+    </script>
+  <link rel="stylesheet" href="/assets/index.14d2a6e8.css" /><script type="module" src="/hoisted.d1663d0e.js"></script></head>
+  <body class="h-full overflow-x-hidden text-base bg-default text-default selection:bg-secondary selection:text-white">
+    <header id="page-header" class="absolute bottom-0 z-10 flex items-center justify-between w-full px-8 py-4 text-white border-b border-transparent bg-black astro-ZBNFD2HE">
+  <a class="flex items-center gap-3 hover:!text-default drop-shadow-md astro-ZBNFD2HE" href="#">
+    <h1 class="sr-only astro-ZBNFD2HE">Elation Hackathon 2022</h1>
+    <svg fill="none" viewBox="0 0 32 32" class="h-10 astro-ZBNFD2HE" astro-icon="logomark"><path fill="#fff" d="M12.224 6.526c0 .316-.195.609-.512.609h-.925c-.414 0-.609-.317-.609-.61V.61c0-.317.195-.609.512-.609h.925c.414 0 .609.317.609.609v5.917ZM25.762 31.072H10.178V9.984h15.584v3.872H14.05v4.894h11.396v3.677H14.05v4.797h11.712v3.848ZM.609 12.224c-.317 0-.609-.195-.609-.511v-.926c0-.414.317-.609.609-.609h5.795c.414 0 .706.195.706.512v.925c0 .414-.316.609-.608.609H.609ZM15.17 8.96c-.316.317-.608.317-.925 0l-.803-.803c-.317-.316-.317-.608 0-.803l3.969-4.067c.316-.316.608-.316.925 0l.804.804c.316.316.316.609 0 .925l-3.97 3.945ZM4.992 20.162c-.317.317-.61.317-.926 0l-.803-.803c-.317-.317-.317-.61 0-.804l3.969-4.067c.316-.316.609-.316.925 0l.804.804c.316.316.316.609 0 .925l-3.97 3.945ZM3.238 4.992c-.316-.317-.316-.609 0-.926l.804-.803c.317-.317.609-.317.804 0l4.066 3.969c.317.317.317.609 0 .925l-.804.804c-.316.316-.608.316-.925 0L3.238 4.99Z"/></svg>
+  </a>
+  <div class="astro-ZBNFD2HE">
+    <div class="flex items-center gap-6 astro-ZBNFD2HE">
+      <nav class="hidden sm:block astro-ZBNFD2HE">
+        <ul class="flex items-center gap-6 astro-ZBNFD2HE">
+          <li class="astro-ZBNFD2HE">
+                <a class="text-sm astro-ZBNFD2HE" href="#schedule">
+                  Schedule
+                </a>
+              </li><li class="astro-ZBNFD2HE">
+                <a class="text-sm astro-ZBNFD2HE" href="#venue">
+                  Venue
+                </a>
+              </li><li class="astro-ZBNFD2HE">
+                <a class="text-sm astro-ZBNFD2HE" href="#resources">
+                  Resources
+                </a>
+              </li>
+        </ul>
+      </nav>
+      <button id="open-nav-button" type="button" class="btn sm:hidden astro-ZBNFD2HE" aria-label="Navigation">
+        <svg viewBox="0 0 24 24" class="h-8 astro-ZBNFD2HE" astro-icon="mdi:menu"><path fill="currentColor" d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      </button>
+      <!--
+  negative margin is sum of button width (8) and gap size of flex parent (6)
+  TODO don't hardcode these values
+--><button id="theme-switcher" type="button" class="scale-0 transition-all origin-[right_center] duration-500 -ml-14 astro-EIS667ME">
+  <div id="icon-theme-light" class="astro-EIS667ME">
+    <svg viewBox="0 0 512 512" class="h-8 astro-EIS667ME" astro-icon="theme/light"><defs><linearGradient id="astroicon:theme/lighta" x1="149.99" x2="234.01" y1="119.24" y2="264.76" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="currentColor"/><stop offset=".45" stop-color="currentColor"/><stop offset="1" stop-color="currentColor"/></linearGradient><symbol id="astroicon:theme/lightb" viewBox="0 0 384 384"><circle cx="192" cy="192" r="84" fill="url(#astroicon:theme/lighta)" stroke="currentColor" stroke-miterlimit="10" stroke-width="6"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="24" d="M192 61.66V12m0 360v-49.66m92.17-222.51 35.11-35.11M64.72 319.28l35.11-35.11m0-184.34L64.72 64.72m254.56 254.56-35.11-35.11M61.66 192H12m360 0h-49.66"><animateTransform additive="sum" attributeName="transform" dur="6s" repeatCount="indefinite" type="rotate" values="0 192 192; 45 192 192"/></path></symbol></defs><use xlink:href="#astroicon:theme/lightb" width="384" height="384" transform="translate(64 64)"/></svg>
+    <span class="sr-only astro-EIS667ME">Use light theme</span>
+  </div>
+  <div id="icon-theme-dark" class="hidden astro-EIS667ME">
+    <svg viewBox="0 0 512 512" class="h-8 astro-EIS667ME" astro-icon="theme/dark"><defs><linearGradient id="astroicon:theme/darkb" x1="54.33" x2="187.18" y1="29.03" y2="259.13" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="currentColor"/><stop offset=".45" stop-color="currentColor"/><stop offset="1" stop-color="currentColor"/></linearGradient><linearGradient id="astroicon:theme/darka" x1="294" x2="330" y1="112.82" y2="175.18" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="currentColor"/><stop offset=".45" stop-color="currentColor"/><stop offset="1" stop-color="currentColor"/></linearGradient><linearGradient xlink:href="#astroicon:theme/darka" id="astroicon:theme/darkc" x1="295.52" x2="316.48" y1="185.86" y2="222.14"/><linearGradient xlink:href="#astroicon:theme/darka" id="astroicon:theme/darkd" x1="356.29" x2="387.71" y1="194.78" y2="249.22"/><symbol id="astroicon:theme/darke" overflow="visible" viewBox="0 0 270 270"><path fill="url(#astroicon:theme/darkb)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" d="M252.25 168.63C178.13 168.63 118 109.35 118 36.21A130.48 130.48 0 0 1 122.47 3C55.29 10.25 3 66.37 3 134.58 3 207.71 63.09 267 137.21 267 199.69 267 252 224.82 267 167.79a135.56 135.56 0 0 1-14.75.84Z"><animateTransform additive="sum" attributeName="transform" dur="6s" repeatCount="indefinite" type="rotate" values="-15 135 135; 9 135 135; -15 135 135"/></path></symbol></defs><path fill="url(#astroicon:theme/darka)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m282.83 162.84 24.93-6.42a1.78 1.78 0 0 1 1.71.46l18.37 18a1.8 1.8 0 0 0 3-1.73l-6.42-24.93a1.78 1.78 0 0 1 .46-1.71l18-18.37a1.8 1.8 0 0 0-1.73-3l-24.93 6.42a1.78 1.78 0 0 1-1.71-.46l-18.37-18a1.8 1.8 0 0 0-3 1.73l6.42 24.93a1.78 1.78 0 0 1-.46 1.71l-18 18.37a1.8 1.8 0 0 0 1.73 3Z"><animateTransform additive="sum" attributeName="transform" calcMode="spline" dur="6s" keySplines=".42, 0, .58, 1; .42, 0, .58, 1" repeatCount="indefinite" type="rotate" values="-15 312 144; 15 312 144; -15 312 144"/><animate attributeName="opacity" dur="6s" values="1; .75; 1; .75; 1; .75; 1"/></path><path fill="url(#astroicon:theme/darkc)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m285.4 193.44 12 12.25a1.19 1.19 0 0 1 .3 1.14l-4.28 16.62a1.2 1.2 0 0 0 2 1.15l12.25-12a1.19 1.19 0 0 1 1.14-.3l16.62 4.28a1.2 1.2 0 0 0 1.15-2l-12-12.25a1.19 1.19 0 0 1-.3-1.14l4.28-16.62a1.2 1.2 0 0 0-2-1.15l-12.25 12a1.19 1.19 0 0 1-1.14.3l-16.62-4.28a1.2 1.2 0 0 0-1.15 2Z"><animateTransform additive="sum" attributeName="transform" begin="-.33s" calcMode="spline" dur="6s" keySplines=".42, 0, .58, 1; .42, 0, .58, 1" repeatCount="indefinite" type="rotate" values="-15 306 204; 15 306 204; -15 306 204"/><animate attributeName="opacity" begin="-.33s" dur="6s" values="1; .75; 1; .75; 1; .75; 1"/></path><path fill="url(#astroicon:theme/darkd)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m337.32 223.73 24.8 6.9a1.83 1.83 0 0 1 1.25 1.25l6.9 24.8a1.79 1.79 0 0 0 3.46 0l6.9-24.8a1.83 1.83 0 0 1 1.25-1.25l24.8-6.9a1.79 1.79 0 0 0 0-3.46l-24.8-6.9a1.83 1.83 0 0 1-1.25-1.25l-6.9-24.8a1.79 1.79 0 0 0-3.46 0l-6.9 24.8a1.83 1.83 0 0 1-1.25 1.25l-24.8 6.9a1.79 1.79 0 0 0 0 3.46Z"><animateTransform additive="sum" attributeName="transform" begin="-.67s" calcMode="spline" dur="6s" keySplines=".42, 0, .58, 1; .42, 0, .58, 1" repeatCount="indefinite" type="rotate" values="-15 372 222; 15 372 222; -15 372 222"/><animate attributeName="opacity" begin="-.67s" dur="6s" values="1; .75; 1; .75; 1; .75; 1"/></path><use xlink:href="#astroicon:theme/darke" width="270" height="270" transform="translate(121 121)"/></svg>
+    <span class="sr-only astro-EIS667ME">Use dark theme</span>
+  </div>
+</button>
+
+
+
+
+    </div>
+    <div id="menu-modal" class="hidden modal astro-ZBNFD2HE" aria-hidden="true">
+      <div class="fixed inset-0 px-8 py-4 bg-default text-default astro-ZBNFD2HE">
+        <div class="space-y-4 astro-ZBNFD2HE" role="dialog" aria-modal="true">
+          <header class="text-right astro-ZBNFD2HE">
+            <button id="close-nav-button" type="button" class="btn astro-ZBNFD2HE" aria-label="Close navigation">
+              <svg viewBox="0 0 24 24" class="h-8 astro-ZBNFD2HE" astro-icon="mdi:close"><path fill="currentColor" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+            </button>
+          </header>
+          <div class="flex justify-center astro-ZBNFD2HE">
+            <svg fill="none" viewBox="0 0 32 32" class="h-16 astro-ZBNFD2HE" astro-icon="logomark"><path fill="#fff" d="M12.224 6.526c0 .316-.195.609-.512.609h-.925c-.414 0-.609-.317-.609-.61V.61c0-.317.195-.609.512-.609h.925c.414 0 .609.317.609.609v5.917ZM25.762 31.072H10.178V9.984h15.584v3.872H14.05v4.894h11.396v3.677H14.05v4.797h11.712v3.848ZM.609 12.224c-.317 0-.609-.195-.609-.511v-.926c0-.414.317-.609.609-.609h5.795c.414 0 .706.195.706.512v.925c0 .414-.316.609-.608.609H.609ZM15.17 8.96c-.316.317-.608.317-.925 0l-.803-.803c-.317-.316-.317-.608 0-.803l3.969-4.067c.316-.316.608-.316.925 0l.804.804c.316.316.316.609 0 .925l-3.97 3.945ZM4.992 20.162c-.317.317-.61.317-.926 0l-.803-.803c-.317-.317-.317-.61 0-.804l3.969-4.067c.316-.316.609-.316.925 0l.804.804c.316.316.316.609 0 .925l-3.97 3.945ZM3.238 4.992c-.316-.317-.316-.609 0-.926l.804-.803c.317-.317.609-.317.804 0l4.066 3.969c.317.317.317.609 0 .925l-.804.804c-.316.316-.608.316-.925 0L3.238 4.99Z"/></svg>
+          </div>
+          <nav class="astro-ZBNFD2HE">
+            <ul class="flex flex-col astro-ZBNFD2HE">
+              <li class="astro-ZBNFD2HE">
+                    <a class="block py-4 text-xl text-center drop-shadow-md astro-ZBNFD2HE" href="#schedule">
+                      Schedule
+                    </a>
+                  </li><li class="astro-ZBNFD2HE">
+                    <a class="block py-4 text-xl text-center drop-shadow-md astro-ZBNFD2HE" href="#venue">
+                      Venue
+                    </a>
+                  </li><li class="astro-ZBNFD2HE">
+                    <a class="block py-4 text-xl text-center drop-shadow-md astro-ZBNFD2HE" href="#resources">
+                      Resources
+                    </a>
+                  </li>
+            </ul>
+          </nav>
         </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-        <a class="menu-btn" href="#schedule">Schedule</a><br/>
-        <a class="menu-btn" href="#hotel-info">Hotel Info</a>
 
-        <div id="schedule" class="section">
 
+<noscript>
+  <style>
+    #open-nav-button {
+      display: none;
+    }
+  </style>
+</noscript>
+
+
+    <section class="relative w-full h-full bg-black overflow-hidden">
+  <div class="absolute">
+    <picture class="h-full invisible sm:visible filter-vibrant-100">
+  <source type="image/webp" srcset="/assets/images/hero/Zu3_J-NdfJ-800.webp 800w" sizes="100vw">
+  <source type="image/jpeg" srcset="/assets/images/hero/Zu3_J-NdfJ-800.jpeg 800w" sizes="100vw">
+  <img class="object-cover h-full" alt="Photo of LA">
+</picture>
+  </div>
+  <div class="relative grid h-full sm:grid-cols-1 place-items-center">
+    <div class="flex flex-col items-center gap-4 content-center">
+      <picture class="filter-vibrant-400">
+        <source type="image/webp" srcset="/assets/images/logo/Df5324xpmE-450.webp 450w" sizes="(min-width: 640px) 42vw, 67vw">
+        <source type="image/png" srcset="/assets/images/logo/Df5324xpmE-450.png 450w" sizes="(min-width: 640px) 42vw, 67vw">
+        <img class="object-cover w-full h-full md:w-3/4 md:h-3/4 xl:w-1/2 xl:h-1/2 m-auto drop-shadow-lg" src="/assets/images/logo/Df5324xpmE-450.png" width="450" height="450" alt="Elationeers flying into space">
+      </picture>
+      <div class="self:center">
+        <div class="relative font-extrabold tracking-tighter text-center text-2xl md:text-2xl text-white whitespace-nowrap drop-shadow-hard">
+          September 19th - 23rd, 2022
+          <br>
+          Los Angeles, CA
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div id="hotel-info" class="section">
-
+<noscript>
+  <style>
+    #splash-bg-fallback {
+      display: block;
+    }
+  </style>
+</noscript>
+    <div class="px-8 py-32 space-y-24">
+      <section id="intro" class="flex flex-col items-center gap-4 space-y-8 scroll-mt-24">
+  <div class="flex flex-col items-center gap-4">
+    
+    <h2 class="text-6xl font-extrabold tracking-tight text-center gradient-text drop-shadow-hard">
+      Welcome
+    </h2>
+  </div>
+  <p class="max-w-xl text-2xl font-extrabold text-center">
+    
+    Get ready for <span class="text-primary">Elation Hacks 2022</span>! <span class="text-primary">Ten teams</span> will enter, but only one will take home the <span class="text-primary">ultimate prize</span>.
+  
+  </p>
+  
+</section>
+      <section id="schedule" class="flex flex-col items-center gap-4 space-y-8 scroll-mt-24">
+  <div class="flex flex-col items-center gap-4">
+    
+    <h2 class="text-6xl font-extrabold tracking-tight text-center gradient-text drop-shadow-hard">
+      Schedule
+    </h2>
+  </div>
+  <p class="max-w-xl text-2xl font-extrabold text-center">
+    <span class="text-sm">Last updated: <span class="text-primary">9/15/2022</span>
+    </span>
+  </p>
+  <div class="grid max-w-4xl w-4xl grid-cols-1 mt-0">
+    <details id="schedule-day1" class="mb-2">
+  <summary class="font-bold text-xl">Day 1: Monday (9/19)</summary>
+  <div class="md:ml-6 mt-2 mb-4 w-full">
+    <div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full hidden md:grid">
+      <div class="schedule-time text-left font-bold">Time</div>
+      <div class="schedule-event text-left font-bold">Event</div>
+      <div class="schedule-location font-bold">Location</div>
+    </div>
+    <div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            8am
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Conference rooms doors open
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            LAX Marriott (Hotel)
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            3pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Check-in (team arrival 🚀)
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            LAX Marriott (Hotel)
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            4pm - 6pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Games &amp; Icebreakers (social)
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            6pm - 7pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Hackathon Opening Statement
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            7pm - 8pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Company Dinner 😋
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Century Pavilion (Hotel)
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            8pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Games &amp; Icebreakers II (social)
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
         </div>
-    </body>
-</html>
+  </div>
+</details>
+    <details id="schedule-day2" class="mb-2">
+  <summary class="font-bold text-xl">Day 2: Tuesday (9/20)</summary>
+  <div class="md:ml-6 mt-2 mb-4 w-full">
+    <div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full hidden md:grid">
+      <div class="schedule-time text-left font-bold">Time</div>
+      <div class="schedule-event text-left font-bold">Event</div>
+      <div class="schedule-location font-bold">Location</div>
+    </div>
+    <div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            8am - 9am
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Breakfast w/ Hack Team 😋
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Century Pavilion (Hotel)
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            9am - 11am
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Work Time
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            11am - 12pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            All Hands Meeting
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            12pm - 1pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Lunch Roulette (random group) 😋
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Century Pavilion (Hotel)
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            1pm - 3pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Work Time
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            3pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Snack Time! 🍿
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            3pm - 5pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Work Time
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            5pm - 6pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Team Organized Time
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            TBD
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            6pm - 11pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Domain Pillar Dinner 😋
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Assigned Restaurants
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            11pm - 12am
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Late Night Work Time (optional) 🌙🦉
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div>
+  </div>
+</details>
+    <details id="schedule-day3" class="mb-2">
+  <summary class="font-bold text-xl">Day 3: Wednesday (9/21)</summary>
+  <div class="md:ml-6 mt-2 mb-4 w-full">
+    <div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full hidden md:grid">
+      <div class="schedule-time text-left font-bold">Time</div>
+      <div class="schedule-event text-left font-bold">Event</div>
+      <div class="schedule-location font-bold">Location</div>
+    </div>
+    <div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            8am - 9am
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Breakfast w/ Hack Team 😋
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Century Pavilion (Hotel)
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            9am - 12pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Work Time
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            12pm - 1pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Lunch w/ Domain Team 😋
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Century Pavilion (Hotel)
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            1pm - 3pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Work Time
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            3pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Snack Time! 🍿
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            3pm - 7pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Work Time
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            7pm - 10pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Dinner Company Event 😋⛳
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            TopGolf El Segundo
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            10pm - 12am
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Late Night Work Time (optional) 🌙🦉
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div>
+  </div>
+</details>
+    <details id="schedule-day4" class="mb-2">
+  <summary class="font-bold text-xl">Day 4: Thursday (9/22)</summary>
+  <div class="md:ml-6 mt-2 mb-4 w-full">
+    <div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full hidden md:grid">
+      <div class="schedule-time text-left font-bold">Time</div>
+      <div class="schedule-event text-left font-bold">Event</div>
+      <div class="schedule-location font-bold">Location</div>
+    </div>
+    <div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            8am - 9am
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Breakfast w/ Hack Team 😋
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Century Pavilion (Hotel)
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            9am - 12pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Work Time
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            12pm - 1pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Lunch Roulette w/ Hack Team 😋
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Century Pavilion (Hotel)
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            1pm - 3pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Work Time
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            3pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Snack Time! 🍿
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            3pm - 6:30pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Work Time
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            7pm - 8pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Dinner w/ Hack Team 😋
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Century Pavilion (Hotel)
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            6:30pm - 9pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Hackathon Update w/ Judges
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div>
+  </div>
+</details>
+    <details id="schedule-day5" class="mb-2">
+  <summary class="font-bold text-xl">Day 5: Friday (9/23)</summary>
+  <div class="md:ml-6 mt-2 mb-4 w-full">
+    <div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full hidden md:grid">
+      <div class="schedule-time text-left font-bold">Time</div>
+      <div class="schedule-event text-left font-bold">Event</div>
+      <div class="schedule-location font-bold">Location</div>
+    </div>
+    <div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            8am - 9am
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Breakfast 😋
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Century Pavilion (Hotel)
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            9am - 12pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Q &amp; A
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            Conference Rooms
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            11am
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Hotel check-out
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            LAX Marriott
+          </div>
+        </div><div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            1pm
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            Travel home safely! 🚀
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            -
+          </div>
+        </div>
+  </div>
+</details>
+  </div>
+</section>
+
+
+      <section id="venue" class="flex flex-col items-center gap-4 space-y-8 scroll-mt-24">
+  <div class="flex flex-col items-center gap-4">
+    
+    <h2 class="text-6xl font-extrabold tracking-tight text-center gradient-text drop-shadow-hard">
+      Venue
+    </h2>
+  </div>
+  <p class="max-w-xl text-2xl font-extrabold text-center">
+    <a href="https://www.marriott.com/en-us/hotels/laxap-los-angeles-airport-marriott/overview/" target="_blank" class="astro-3VYLOY6M">Los Angeles Airport Marriott
+    </a><br class="astro-3VYLOY6M"><a class="text-lg astro-3VYLOY6M" href="https://goo.gl/maps/EXWdUFLcrGkjUH3ZA" target="_blank">5855 W Century Blvd, Los Angeles, CA 90045</a><br class="astro-3VYLOY6M"><a class="text-lg astro-3VYLOY6M" href="tel:+13106415700">+1 310-641-5700</a><br class="astro-3VYLOY6M"><span class="text-lg astro-3VYLOY6M">Check-in: <span class="text-primary astro-3VYLOY6M">3pm</span>, Check-out: <span class="text-primary astro-3VYLOY6M">11am</span>
+    </span>
+  </p>
+  <div class="max-w-6xl space-y-2 astro-3VYLOY6M">
+    <div class="mapouter astro-3VYLOY6M">
+      <div class="gmap_canvas astro-3VYLOY6M">
+        <iframe class="m-auto astro-3VYLOY6M" width="500" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=5855%20W%20Century%20Blvd,%20Los%20Angeles,%20CA%2090045&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+      <section id="resources" class="flex flex-col items-center gap-4 space-y-8 scroll-mt-24">
+  <div class="flex flex-col items-center gap-4">
+    
+    <h2 class="text-6xl font-extrabold tracking-tight text-center gradient-text drop-shadow-hard">
+      Resources
+    </h2>
+  </div>
+  <p class="max-w-xl text-2xl font-extrabold text-center">
+    
+    Have a <a class="underline" href="" target="_blank">question</a>? Check the <a class="underline" href="https://docs.google.com/document/d/16meV6bb81gb2OHbEQkDZPuSZQZO2kv_fMXYgXOAW0iA/edit#heading=h.rgvuwy1d8oio" target="_blank">FAQ</a>. Hangout in <a class="underline" href="" target="_blank">Slack</a> or catch
+    a <a class="underline" href="https://www.lyft.com/rider" target="_blank">Lyft</a>!
+  
+  </p>
+  
+</section>
+    </div>
+    <footer class="relative flex items-center justify-center h-64">
+  <div class="absolute inset-0 overflow-hidden opacity-20"><picture>
+  <source type="image/webp" srcset="/assets/images/hero/fHg97UoVY0-450.webp 450w,/assets/images/hero/fHg97UoVY0-800.webp 800w,/assets/images/hero/fHg97UoVY0-1200.webp 1200w" sizes="100vw">
+  <source type="image/jpeg" srcset="/assets/images/hero/fHg97UoVY0-450.jpeg 450w,/assets/images/hero/fHg97UoVY0-800.jpeg 800w,/assets/images/hero/fHg97UoVY0-1200.jpeg 1200w" sizes="100vw">
+  <img class="object-cover w-full h-full" src="/assets/images/hero/fHg97UoVY0-800.jpeg" width="800" height="449" alt="Sandy beach">
+</picture></div>
+  <ul class="relative grid grid-cols-2 gap-4 sm:grid-cols-5">
+    <li>
+          <a class="flex items-center justify-center w-16 h-16 p-4 border-2 border-current rounded-full" href="https://www.elationhealth.com/">
+            <span class="sr-only">Elation Health&#39;s official website</span>
+            <svg viewBox="0 0 24 24" class="h-full" astro-icon="mdi:home"><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+          </a>
+        </li><li>
+          <a class="flex items-center justify-center w-16 h-16 p-4 border-2 border-current rounded-full" href="https://www.facebook.com/ElationHealth">
+            <span class="sr-only">Elation Health on Facebook</span>
+            <svg viewBox="0 0 512 512" class="h-full" astro-icon="fa-brands:facebook"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+          </a>
+        </li><li>
+          <a class="flex items-center justify-center w-16 h-16 p-4 border-2 border-current rounded-full" href="https://www.linkedin.com/company/elationhealth/">
+            <span class="sr-only">Elation Health on LinkedIn</span>
+            <svg viewBox="0 0 448 512" class="h-full" astro-icon="fa-brands:linkedin"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+          </a>
+        </li><li>
+          <a class="flex items-center justify-center w-16 h-16 p-4 border-2 border-current rounded-full" href="https://www.instagram.com/elationhealth/">
+            <span class="sr-only">Elation Health on Instagram</span>
+            <svg viewBox="0 0 448 512" class="h-full" astro-icon="fa-brands:instagram"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+          </a>
+        </li><li>
+          <a class="flex items-center justify-center w-16 h-16 p-4 border-2 border-current rounded-full" href="https://twitter.com/ElationHealth">
+            <span class="sr-only">Elation Health on Twitter</span>
+            <svg viewBox="0 0 512 512" class="h-full" astro-icon="fa-brands:twitter"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+          </a>
+        </li>
+  </ul>
+  <div class="absolute bottom-1 right-2 text-xs">♡ Elation Health Team</div>
+</footer>
+  </body></html>
