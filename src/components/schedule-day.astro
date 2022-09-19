@@ -1,0 +1,29 @@
+---
+const { data } = Astro.props;
+---
+
+<details id={data.id} class="mb-2">
+  <summary class="font-bold text-base md:text-xl">{data.title}</summary>
+  <div class="md:ml-6 mt-2 mb-4 w-full">
+    <div class="schedule-grid grid-cols-2 md:grid-cols-3 w-full hidden md:grid">
+      <div class="schedule-time text-left font-bold">Time</div>
+      <div class="schedule-event text-left font-bold">Event</div>
+      <div class="schedule-location font-bold">Location</div>
+    </div>
+    {
+      data.events.map(({ time, description, location }) => (
+        <div class="schedule-grid grid grid-cols-2 md:grid-cols-3 w-full pt-1 pb-1">
+          <div class="schedule-time schedule-text text-left text-sm font-medium">
+            {time}
+          </div>
+          <div class="schedule-event schedule-text text-sm text-left font-bold md:font-medium">
+            {description}
+          </div>
+          <div class="schedule-location schedule-text text-sm text-right md:text-left font-medium">
+            {location}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</details>

@@ -1,0 +1,39 @@
+---
+import { generateImage } from "astro-eleventy-img";
+
+const widths = [800, 1200];
+const sizes = "100vw";
+
+const splashImages = [
+  "src/assets/splash_blue_night_la2.png",
+  "src/assets/splash_midday_la.jpg",
+  "src/assets/splash_night_la.jpg",
+  "src/assets/splash_sunset_la.jpg",
+  "src/assets/unsplash_calebgeorge_doowylloh.png",
+  "src/assets/unsplash_danedeaner_beach2.png",
+  "src/assets/unsplash_robertonickson_manhattan.png",
+  "src/assets/unsplash_ventiviews_hollywood_sunset.png",
+];
+
+const { webp, jpeg } = generateImage(splashImages[0], {
+  widths,
+  formats: ["webp", "jpeg"],
+  outputDir: "public/assets/images/hero/",
+  urlPath: "/assets/images/hero/",
+});
+
+const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
+const jpegSrcset = jpeg.map(({ srcset }) => srcset).join(",");
+---
+
+<picture class="h-full invisible sm:visible filter-vibrant-100">
+  <source type="image/webp" srcset={webpSrcset} sizes={sizes} />
+  <source type="image/jpeg" srcset={jpegSrcset} sizes={sizes} />
+  <img
+    class="object-cover h-full"
+    src={jpegSrcset[0].url}
+    width={jpegSrcset[0].width}
+    height={jpegSrcset[0].height}
+    alt="Photo of LA"
+  />
+</picture>

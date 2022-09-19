@@ -1,0 +1,60 @@
+---
+import { generateImage } from "astro-eleventy-img";
+import { Icon } from "astro-icon";
+import SplashImage from "~/components/splash-image.astro";
+
+const widths = [450, 800];
+const sizes = "(min-width: 640px) 42vw, 67vw";
+
+const { webp, png } = generateImage(
+  // "src/assets/elation_hacks_logo_w.png",
+  "src/assets/elation_hacks_logo_grad.png",
+  {
+    widths,
+    formats: ["webp", "png"],
+    outputDir: "public/assets/images/logo",
+    urlPath: "/assets/images/logo",
+  }
+);
+
+const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
+const pngSrcset = png.map(({ srcset }) => srcset).join(",");
+---
+
+<section class="relative w-full h-full bg-black overflow-hidden">
+  <div class="absolute">
+    <SplashImage />
+  </div>
+  <div class="relative grid h-full grid-cols-1 place-items-center">
+    <div class="flex flex-col items-center gap-4 content-center">
+      <picture class="filter-vibrant-400">
+        <source type="image/webp" srcset={webpSrcset} sizes={sizes} />
+        <source type="image/png" srcset={pngSrcset} sizes={sizes} />
+        <img
+          class="object-cover w-full h-full md:w-3/4 md:h-3/4 xl:w-1/2 xl:h-1/2 m-auto drop-shadow-lg"
+          src={png[0].url}
+          width={png[0].width}
+          height={png[0].height}
+          alt="Elationeers flying into space"
+        />
+      </picture>
+      <div class="self:center">
+        <div
+          class="relative font-extrabold tracking-tighter text-center text-xl md:text-2xl text-white whitespace-nowrap drop-shadow-hard"
+        >
+          September 19th - 23rd, 2022
+          <br />
+          Los Angeles, CA
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<noscript>
+  <style>
+    #splash-bg-fallback {
+      display: block;
+    }
+  </style>
+</noscript>

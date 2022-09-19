@@ -1,0 +1,56 @@
+---
+import { Icon } from "astro-icon";
+import FooterImage from "~/components/footer-image.astro";
+
+const links = [
+  {
+    url: "https://www.elationhealth.com/",
+    description: "Elation Health's official website",
+    icon: "mdi:home",
+  },
+  {
+    url: "https://www.facebook.com/ElationHealth",
+    description: "Elation Health on Facebook",
+    icon: "fa-brands:facebook",
+  },
+  {
+    url: "https://www.linkedin.com/company/elationhealth/",
+    description: "Elation Health on LinkedIn",
+    icon: "fa-brands:linkedin",
+  },
+  {
+    url: "https://www.instagram.com/elationhealth/",
+    description: "Elation Health on Instagram",
+    icon: "fa-brands:instagram",
+  },
+  {
+    url: "https://twitter.com/ElationHealth",
+    description: "Elation Health on Twitter",
+    icon: "fa-brands:twitter",
+  },
+];
+---
+
+<footer class="relative flex items-center justify-center h-80">
+  <div class="absolute inset-0 overflow-hidden opacity-20"><FooterImage /></div>
+  <ul class="relative grid grid-cols-3 gap-4 sm:grid-cols-5">
+    {
+      links.map((link) => (
+        <li>
+          <a
+            class="flex items-center justify-center w-16 h-16 p-4 border-2 border-current rounded-full"
+            href={link.url}
+          >
+            <span class="sr-only">{link.description}</span>
+            <Icon class="h-full" name={link.icon} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="absolute bottom-1 right-2 text-xs text-right opacity-60">
+    "Los Angeles skyline" by Venti Views
+    <br />"Drone Photo" by Lance Asper
+    <br />♡ Elation Health Team
+  </div>
+</footer>

@@ -1,0 +1,84 @@
+/* TODO: consider creating <Button> and <GradientText> components */
+a,
+.btn {
+  @apply transition-colors duration-200;
+  @apply hover:text-secondary;
+  @apply hover:underline;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-secondary;
+}
+
+.gradient-text {
+  @apply text-transparent bg-clip-text;
+  @apply bg-gradient-to-br from-orange-500 via-pink-500 to-yellow-500;
+
+  font-family: "Permanent Marker", monospace;
+}
+
+body {
+  --vds-blue-100: #c2eefe;
+  --vds-elation-blue: #1c93ba;
+  --vds-elation-dark-spruce: #01202f;
+  --vds-elation-navy: #00214d;
+  --color-primary: deeppink;
+  --color-secondary: orange;
+}
+
+html[data-theme="dark"] > body {
+  --color-background: var(--vds-elation-dark-spruce);
+}
+
+html[data-theme="light"] > body {
+  --color-background: var(--vds-blue-100);
+}
+
+html[data-theme="light"] svg[astro-icon="logomark"] > path {
+  fill: var(--vds-elation-blue);
+}
+
+.drop-shadow-hard {
+  filter: drop-shadow(5px 5px black);
+}
+
+.filter-vibrant-100 {
+  filter: saturate(1.1);
+}
+.filter-vibrant-200 {
+  filter: saturate(1.2);
+}
+.filter-vibrant-300 {
+  filter: saturate(1.3);
+}
+.filter-vibrant-400 {
+  filter: saturate(1.4);
+}
+.filter-vibrant-500 {
+  filter: saturate(1.5);
+}
+
+.schedule-grid {
+  border-bottom: 1px solid grey;
+  grid-template-areas: "time location" "event event";
+  grid-template-columns: 40% 60%;
+  min-width: min(640px, 80vw);
+}
+
+@media only screen and (min-width: 768px) {
+  .schedule-grid {
+    grid-template-areas: "time event location";
+    grid-template-columns: 21% 49% 30%;
+  }
+}
+
+.schedule-text {
+  line-height: 1.33rem;
+}
+.schedule-time {
+  grid-area: time;
+  margin-right: 1rem;
+}
+.schedule-event {
+  grid-area: event;
+}
+.schedule-location {
+  grid-area: location;
+}

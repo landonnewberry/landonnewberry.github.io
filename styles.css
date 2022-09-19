@@ -1,0 +1,34 @@
+body {
+    background-color: #c2eefe;
+    color: #00214d;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+#logo {
+    width: 60%;
+}
+
+@media (min-width: 1000px) {
+    body {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    #logo {
+        width: 40%;
+    }
+}
+
+.menu-btn {
+    text-decoration: none;
+    color: #1c93ba;
+    margin: auto;
+}
+
+.section {
+    min-height: 2000px;
+    margin-top: 1000px;
+    background-color: white;
+}

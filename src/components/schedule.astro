@@ -1,0 +1,241 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import ScheduleDay from "~/components/schedule-day.astro";
+
+const schedule = {
+  day1: {
+    id: "schedule-day1",
+    title: "Day 1: Monday (9/19)",
+    events: [
+      {
+        time: "8am",
+        description: "Conference rooms doors open",
+        location: "LAX Marriott (Hotel)",
+      },
+      {
+        time: "3pm",
+        description: "Check-in (team arrival 🚀)",
+        location: "LAX Marriott (Hotel)",
+      },
+      {
+        time: "4pm - 6pm",
+        description: "Games & Icebreakers (social)",
+        location: "Conference Rooms",
+      },
+      {
+        time: "6pm - 7pm",
+        description: "Hackathon Opening Statement",
+        location: "Conference Rooms",
+      },
+      {
+        time: "7pm - 8pm",
+        description: "Company Dinner 😋",
+        location: "Century Pavilion (Hotel)",
+      },
+      {
+        time: "8pm",
+        description: "Games & Icebreakers II (social)",
+        location: "Conference Rooms",
+      },
+    ],
+  },
+  day2: {
+    id: "schedule-day2",
+    title: "Day 2: Tuesday (9/20)",
+    events: [
+      {
+        time: "8am - 9am",
+        description: "Breakfast w/ Hack Team 😋",
+        location: "Century Pavilion (Hotel)",
+      },
+      {
+        time: "9am - 11am",
+        description: "Work Time",
+        location: "Conference Rooms",
+      },
+      {
+        time: "11am - 12pm",
+        description: "All Hands Meeting",
+        location: "Conference Rooms",
+      },
+      {
+        time: "12pm - 1pm",
+        description: "Lunch Roulette (random group) 😋",
+        location: "Century Pavilion (Hotel)",
+      },
+      {
+        time: "1pm - 3pm",
+        description: "Work Time",
+        location: "Conference Rooms",
+      },
+      {
+        time: "3pm",
+        description: "Snack Time! 🍿",
+        location: "Conference Rooms",
+      },
+      {
+        time: "3pm - 5pm",
+        description: "Work Time",
+        location: "Conference Rooms",
+      },
+      {
+        time: "5pm - 6pm",
+        description: "Team Organized Time",
+        location: "TBD",
+      },
+      {
+        time: "6pm - 11pm",
+        description: "Domain Pillar Dinner 😋",
+        location: "Assigned Restaurants",
+      },
+      {
+        time: "11pm - 12am",
+        description: "Late Night Work Time (optional) 🌙🦉",
+        location: "Conference Rooms",
+      },
+    ],
+  },
+  day3: {
+    id: "schedule-day3",
+    title: "Day 3: Wednesday (9/21)",
+    events: [
+      {
+        time: "8am - 9am",
+        description: "Breakfast w/ Hack Team 😋",
+        location: "Century Pavilion (Hotel)",
+      },
+      {
+        time: "9am - 12pm",
+        description: "Work Time",
+        location: "Conference Rooms",
+      },
+      {
+        time: "12pm - 1pm",
+        description: "Lunch w/ Domain Team 😋",
+        location: "Century Pavilion (Hotel)",
+      },
+      {
+        time: "1pm - 3pm",
+        description: "Work Time",
+        location: "Conference Rooms",
+      },
+      {
+        time: "3pm",
+        description: "Snack Time! 🍿",
+        location: "Conference Rooms",
+      },
+      {
+        time: "3pm - 7pm",
+        description: "Work Time",
+        location: "Conference Rooms",
+      },
+      {
+        time: "7pm - 10pm",
+        description: "Dinner Company Event 😋⛳",
+        location: "TopGolf El Segundo",
+      },
+      {
+        time: "10pm - 12am",
+        description: "Late Night Work Time (optional) 🌙🦉",
+        location: "Conference Rooms",
+      },
+    ],
+  },
+  day4: {
+    id: "schedule-day4",
+    title: "Day 4: Thursday (9/22)",
+    events: [
+      {
+        time: "8am - 9am",
+        description: "Breakfast w/ Hack Team 😋",
+        location: "Century Pavilion (Hotel)",
+      },
+      {
+        time: "9am - 12pm",
+        description: "Work Time",
+        location: "Conference Rooms",
+      },
+      {
+        time: "12pm - 1pm",
+        description: "Lunch Roulette w/ Hack Team 😋",
+        location: "Century Pavilion (Hotel)",
+      },
+      {
+        time: "1pm - 3pm",
+        description: "Work Time",
+        location: "Conference Rooms",
+      },
+      {
+        time: "3pm",
+        description: "Snack Time! 🍿",
+        location: "Conference Rooms",
+      },
+      {
+        time: "3pm - 6:30pm",
+        description: "Work Time",
+        location: "Conference Rooms",
+      },
+      {
+        time: "7pm - 8pm",
+        description: "Dinner w/ Hack Team 😋",
+        location: "Century Pavilion (Hotel)",
+      },
+      {
+        time: "6:30pm - 9pm",
+        description: "Hackathon Update w/ Judges",
+        location: "Conference Rooms",
+      },
+    ],
+  },
+  day5: {
+    id: "schedule-day5",
+    title: "Day 5: Friday (9/23)",
+    events: [
+      {
+        time: "8am - 9am",
+        description: "Breakfast 😋",
+        location: "Century Pavilion (Hotel)",
+      },
+      {
+        time: "9am - 12pm",
+        description: "Q & A",
+        location: "Conference Rooms",
+      },
+      {
+        time: "11am",
+        description: "Hotel check-out",
+        location: "LAX Marriott",
+      },
+      {
+        time: "1pm",
+        description: "Travel home safely! 🚀",
+        location: "-",
+      },
+    ],
+  },
+};
+---
+
+<ContentSection title="Schedule" id="schedule">
+  <Fragment slot="lead"
+    ><span class="text-sm"
+      >Last updated: <span class="text-primary">9/16/2022</span>
+    </span>
+  </Fragment>
+  <div class="grid max-w-4xl w-4xl grid-cols-1 mt-0">
+    <ScheduleDay data={schedule.day1} />
+    <ScheduleDay data={schedule.day2} />
+    <ScheduleDay data={schedule.day3} />
+    <ScheduleDay data={schedule.day4} />
+    <ScheduleDay data={schedule.day5} />
+  </div>
+</ContentSection>
+
+<script>
+  // Auto-expand disclosure of current day
+  const today = new Date();
+  const scheduleToggleSel = `#schedule-day${today.getDay()} > summary`;
+  console.log(scheduleToggleSel);
+  const elToggle = document.querySelector(scheduleToggleSel) as HTMLElement;
+  if (elToggle) elToggle.click();
+</script>

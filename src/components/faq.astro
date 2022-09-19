@@ -1,0 +1,89 @@
+---
+import ContentSection from "~/components/content-section.astro";
+const urls = {
+  teamsAndProject:
+    "https://elationhealth.atlassian.net/wiki/spaces/PROD/pages/2369028358/Hackathon+2022+-+Teams+Projects",
+  prodDevPlan:
+    "https://docs.google.com/spreadsheets/d/1MtOyalTtIHSUzU9DIakO7YMMiEPVAeLGDSeQUH8Qm3Q/edit#gid=1518421012",
+  officialFaq:
+    "https://docs.google.com/document/d/16meV6bb81gb2OHbEQkDZPuSZQZO2kv_fMXYgXOAW0iA/edit#heading=h.rgvuwy1d8oio",
+  slackAskHackathon2022: "https://elation.slack.com/archives/C042Q0D6Y69",
+  slackProdDev: "https://elation.slack.com/archives/C04BE0RMJ",
+  lyftInfo: "https://www.lyft.com/rider",
+};
+---
+
+<ContentSection title="Resources" id="resources">
+  <Fragment slot="lead">
+    <ul class="text-lg">
+      <li>
+        🤝 Meet your <a
+          class="underline font-semibold"
+          href={urls.teamsAndProject}
+          rel="noopener noreferrer"
+          target="_blank">Teams & Projects</a
+        >!
+      </li>
+      <li>
+        📋 Review the <a
+          class="underline font-semibold"
+          href={urls.prodDevPlan}
+          rel="noopener noreferrer"
+          target="_blank">Plan</a
+        >.
+      </li>
+      <li>
+        👉 Check the <a
+          class="underline font-semibold"
+          href={urls.officialFaq}
+          rel="noopener noreferrer"
+          target="_blank">FAQ</a
+        >.
+      </li>
+      <li>
+        🙋 Ask a question in <a
+          class="underline font-semibold"
+          href={urls.slackAskHackathon2022}
+          rel="noopener noreferrer"
+          target="_blank">#ask-hackathon-2022</a
+        >?
+      </li>
+      <li>
+        🎉 Hangout in <a
+          class="underline font-semibold"
+          href={urls.slackProdDev}
+          rel="noopener noreferrer"
+          target="_blank">#team_proddev</a
+        >!
+      </li>
+      <li>
+        🚀 Catch a <a
+          class="underline font-semibold"
+          href={urls.lyftInfo}
+          rel="noopener noreferrer"
+          target="_blank">Lyft</a
+        >!
+      </li>
+    </ul>
+    <br /><br /><br />
+    <a
+      id="scavenger-hunt-link"
+      class="opacity-25 text-xs"
+      href="/scavenger_hunt">🦛</a
+    >
+    <script>
+      const el = document.getElementById("scavenger-hunt-link");
+      if (el) {
+        el.addEventListener("click", (e: MouseEvent) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.open(
+            "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "_blank",
+            "noopener noreferrer"
+          );
+        });
+      }
+    </script>
+  </Fragment>
+</ContentSection>
